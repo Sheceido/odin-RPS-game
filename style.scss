@@ -1,0 +1,151 @@
+:root {
+    --btn-start-height: 90px;
+    --btn-start-width: 250px;
+
+    --btn-query-height: 90px;
+    --btn-query-width: 175px;
+    }
+    
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    
+    body {
+        /* credits to bg maker/generator: https://patternico.com/#lQQB20t9QozT4JTM */
+        background-image: url('./assets/rps-bg.png');
+        background-attachment: fixed;
+        background-repeat: repeat;
+        height: 100vh;
+    }
+
+    .start-menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .title-screen {
+        transform:translateY(-50px);
+        border-radius: 50px;
+        overflow: hidden;
+        outline: 10px solid hsl(214, 86%, 19%);
+    }
+
+    .flex {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    
+    .button-edge-start {
+        height: var(--btn-start-height);
+        width: var(--btn-start-width);
+        background: linear-gradient(20deg, hsl(125, 100%, 15%) 1%, hsl(125, 100%, 20%) 5%, hsl(125, 100%, 30%) 30%, hsl(125, 100%, 44%));
+        transform: translateY(-5px);
+        outline: 10px solid hsl(214, 86%, 19%);
+        border-radius: 20px;
+        border: 1px solid hsla(197, 100%, 50%, 0.80);
+    }
+    .button-start {
+        @extend .button;
+    
+        height: var(--btn-start-height);
+        width: var(--btn-start-width);
+        background: linear-gradient(45deg,hsl(120, 36%, 35%) 5%, hsl(120, 72%, 40%) , hsl(120, 100%, 60%));
+        transform: translateY(-20px);
+        border-radius: 15px;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.1s linear;
+
+        p {
+            font-size: 4rem;
+            font-family: 'Zen Loop', cursive;
+            color: hsl(78, 100%, 50%);
+            font-weight: 500;
+            user-select: none;
+        }
+    }
+    .button-start::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        height: var(--btn-start-height);
+        width: var(--btn-start-width);
+        background: linear-gradient(-75deg, transparent, rgba(255, 255, 255, 0.445) 40%, transparent);
+        transition: all 0.5s ease;
+    }
+    .button-start:hover {
+        transform: translateY(-18px);
+        background: linear-gradient(45deg,hsl(120, 36%, 40%) 5%, hsl(120, 72%, 45%) , hsl(120, 100%, 65%));
+    }
+    .button-start:hover::before {
+        left: 100%;
+    }
+    .button-start:active {
+        transform: translateY(-5px);
+    }
+
+
+    .btn-edge-query {
+        height: var(--btn-query-height);
+        width: var(--btn-query-width);
+        background: linear-gradient(20deg, hsl(0, 100%, 15%) 1%, hsl(0, 100%, 20%) 5%, hsl(0, 100%, 30%) 30%, hsl(0, 100%, 44%));
+        transform: translateY(-5px);
+        outline: 10px solid hsl(214, 86%, 19%);
+        border-radius: 20px;
+        border: 1px solid hsla(197, 100%, 50%, 0.80);
+    }
+    .button-query {
+        @extend .button;
+
+        height: var(--btn-query-height);
+        width: var(--btn-query-width);
+        background: linear-gradient(45deg,hsl(0, 100%, 35%) 5%, hsl(0, 100%, 40%) 30%, hsl(0, 100%, 75%));
+        transform: translateY(-20px);
+        border-radius: 15px;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.1s linear;
+
+        p {
+            font-size: 2rem;
+            font-family: 'Zen Loop', cursive;
+            color: hsl(78, 100%, 50%);
+            font-weight: 500;
+            user-select: none;
+        }
+    }
+    .button-query::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        height: var(--btn-query-height);
+        width: var(--btn-query-width);
+        background: linear-gradient(-75deg, transparent, rgba(255, 255, 255, 0.445) 40%, transparent);
+        transition: all 0.2s linear;
+    }
+    .button-query:hover {
+        transform: translateY(-18px);
+        background: linear-gradient(45deg,hsl(0, 100%, 35%) 5%, hsl(0, 100%, 40%) 35%, hsl(0, 100%, 80%));
+    }
+    .button-query:hover::before {
+        left: 100%;
+    }
+    .button-query:active {
+        transform: translateY(-5px);
+    }
